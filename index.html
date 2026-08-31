@@ -152,7 +152,8 @@ const RECAP = {
   driveUrl: "https://drive.google.com/drive/folders/1cP4upcnEMuhsQq4zbluOejsTsX2L6WPv?usp=share_link",
 
   monthTwo: [
-    // Month two reels land here once Callie sends the links.
+    { title: "In feed · 1.7M+ views", media: "feed-DaTXHC6KiKB.jpg", href: "https://www.instagram.com/reel/DaTXHC6KiKB/" },
+    // Supplemental Trial reels land here as Callie sends the links.
   ],
 
   monthOne: [
@@ -175,8 +176,11 @@ function tileHTML(item){
       media = `<img src="assets/${item.media}" alt="">`;
     }
   }
+  if (item.href) {
+    media = `<a href="${item.href}" target="_blank" rel="noopener">${media}</a>`;
+  }
   const foot = item.title
-    ? `<div class="mt-3 font-head font-semibold text-sm text-white/90">${item.title}</div>`
+    ? `<div class="mt-3 font-head font-semibold text-sm text-white/90">${item.href ? `<a href="${item.href}" target="_blank" rel="noopener" class="hover:text-winblue2 transition">${item.title}</a>` : item.title}</div>`
     : "";
   return `
     <div class="reveal">

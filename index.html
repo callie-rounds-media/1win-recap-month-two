@@ -116,17 +116,17 @@ tailwind.config = {
   <div class="max-w-6xl mx-auto px-6">
     <p class="eyebrow uppercase text-winblue text-xs font-bold mb-3 reveal">Month one</p>
     <h2 class="font-head font-extrabold text-3xl md:text-4xl tracking-tight max-w-2xl reveal">Looking back on month one.</h2>
-    <p class="mt-6 text-base md:text-lg text-mute max-w-2xl reveal leading-relaxed">When I sent the first recap, the month one videos were at 17.5 million views. In the meantime they've climbed above 30 million, and everything is still live.</p>
-
-    <div class="flex flex-wrap gap-x-16 sm:gap-x-24 gap-y-10 mt-12">
-      <div class="reveal min-w-0">
-        <div class="font-head font-extrabold text-5xl sm:text-6xl md:text-7xl text-white tnum"><span class="count" data-to="30">0</span>M+</div>
-        <div class="mt-3 font-head font-semibold text-white text-sm">Views so far</div>
-        <div class="mt-1 text-sm text-mute max-w-[15rem]">1win branded content from month one</div>
-      </div>
-    </div>
+    <p class="mt-6 text-base md:text-lg text-mute max-w-2xl reveal leading-relaxed">When I sent the first recap, the month one videos were at 17.5 million views. In the meantime they've climbed past 50 million, and everything is still live and collecting views.</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14" id="m1Grid"></div>
+
+    <div class="mt-16 reveal" id="m1TotalWrap">
+      <div class="font-head font-extrabold text-5xl sm:text-6xl md:text-7xl text-white tnum" id="m1Total"></div>
+      <div class="mt-3 font-head font-semibold text-white text-sm">Month one views</div>
+    </div>
+
+    <h3 class="font-head font-bold text-xl md:text-2xl tracking-tight mt-16 mb-8 reveal">Some of the Trial reels.</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5" id="m1TrialGrid"></div>
 
     <div class="mt-8 flex flex-wrap items-center justify-between gap-5 rounded-2xl border border-white/10 bg-panel p-7 reveal">
       <div class="text-sm text-mute"><span class="text-white font-semibold">Download the month one edits.</span> Full-resolution files.</div>
@@ -164,30 +164,44 @@ const RECAP = {
   ],
 
   // views = exact play counts, live from Instagram 2026-08-31. Refresh before sending.
-  monthTwoFeedViews: 1729131,
+  monthTwoFeedViews: 1729437,
   trials: [
     { code: "DbrvG5IKJcZ", views: 11528, cover: "trial-DbrvG5IKJcZ.jpg" },
-    { code: "DbzVgh0tUo5", views: 428567, cover: "trial-DbzVgh0tUo5.jpg" },
+    { code: "DbzVgh0tUo5", views: 428626, cover: "trial-DbzVgh0tUo5.jpg" },
     { code: "DbzXNYnqzXe", views: 21147, cover: "trial-DbzXNYnqzXe.jpg" },
     { code: "DbzYW8xq42F", views: 19293, cover: "trial-DbzYW8xq42F.jpg" },
-    { code: "Dbz0XoThIBp", views: 81579, cover: "trial-Dbz0XoThIBp.jpg" },
-    { code: "Db1Pg96hklF", views: 82408, cover: "trial-Db1Pg96hklF.jpg" },
-    { code: "Db9L90Yq8Ou", views: 35557, cover: "trial-Db9L90Yq8Ou.jpg" },
+    { code: "Dbz0XoThIBp", views: 81581, cover: "trial-Dbz0XoThIBp.jpg" },
+    { code: "Db1Pg96hklF", views: 82428, cover: "trial-Db1Pg96hklF.jpg" },
+    { code: "Db9L90Yq8Ou", views: 35558, cover: "trial-Db9L90Yq8Ou.jpg" },
     { code: "DcAbeT3h0nB", views: 10151, cover: "trial-DcAbeT3h0nB.jpg" },
-    { code: "DcbKh29q_wq", views: 41102, cover: "trial-DcbKh29q_wq.jpg" },
-    { code: "DcbKoouqHW5", views: 350261, cover: "trial-DcbKoouqHW5.jpg" },
-    { code: "DcbK4l2K9eW", views: 71269, cover: "trial-DcbK4l2K9eW.jpg" },
-    { code: "Dcd6bp6KEuh", views: 11930, cover: "trial-Dcd6bp6KEuh.jpg" },
+    { code: "DcbKh29q_wq", views: 41133, cover: "trial-DcbKh29q_wq.jpg" },
+    { code: "DcbKoouqHW5", views: 350283, cover: "trial-DcbKoouqHW5.jpg" },
+    { code: "DcbK4l2K9eW", views: 71277, cover: "trial-DcbK4l2K9eW.jpg" },
+    { code: "Dcd6bp6KEuh", views: 11934, cover: "trial-Dcd6bp6KEuh.jpg" },
     { code: "DcimKIFq3vQ", views: 19408, cover: "trial-DcimKIFq3vQ.jpg" },
-    { code: "DcioyCUKXQf", views: 142202, cover: "trial-DcioyCUKXQf.jpg" },
-    { code: "Dcj8Wnvq2B5", views: 23922, cover: "trial-Dcj8Wnvq2B5.jpg" },
+    { code: "DcioyCUKXQf", views: 142232, cover: "trial-DcioyCUKXQf.jpg" },
+    { code: "Dcj8Wnvq2B5", views: 23923, cover: "trial-Dcj8Wnvq2B5.jpg" },
   ],
 
   monthOne: [
-    { title: "Edit 01", media: "shoot-01.mp4" },
-    { title: "Edit 02", media: "shoot-02.mp4" },
-    { title: "Edit 03", media: "shoot-04.mp4" },
-    { title: "Edit 04", media: "shoot-03.mp4" },
+    { title: "In feed · 8.1M views", views: 8098851, media: "m1feed-DassDgFqgkb.jpg", href: "https://www.instagram.com/reel/DassDgFqgkb/" },
+    { title: "In feed · 1.1M views", views: 1110949, media: "m1feed-DaYielFq3GR.jpg", href: "https://www.instagram.com/reel/DaYielFq3GR/" },
+  ],
+  monthOneTrials: [
+    { code: "Davkfnjqpt9", views: 590685, cover: "trial-Davkfnjqpt9.jpg" },
+    { code: "DatgbO6qatS", views: 15302363, cover: "trial-DatgbO6qatS.jpg" },
+    { code: "Datd0CCKepc", views: 9080025, cover: "trial-Datd0CCKepc.jpg" },
+    { code: "DatAb7pKSvS", views: 3830534, cover: "trial-DatAb7pKSvS.jpg" },
+    { code: "Das-mKEqAmv", views: 12115102, cover: "trial-Das-mKEqAmv.jpg" },
+    { code: "DarFSVsNdu0", views: 13502, cover: "trial-DarFSVsNdu0.jpg" },
+    { code: "DarA-dZNH-V", views: 22141, cover: "trial-DarA-dZNH-V.jpg" },
+    { code: "DalUvr7qIVM", views: 59713, cover: "trial-DalUvr7qIVM.jpg" },
+    { code: "Dai1JpDPfLY", views: 14236, cover: "trial-Dai1JpDPfLY.jpg" },
+    { code: "Daf4jQIKgQY", views: 9547, cover: "trial-Daf4jQIKgQY.jpg" },
+    { code: "DaXwXyhOjxa", views: 18341, cover: "trial-DaXwXyhOjxa.jpg" },
+    { code: "DaXmtl3M0qp", views: 63618, cover: "trial-DaXmtl3M0qp.jpg" },
+    { code: "DaULa3-qVox", views: 134774, cover: "trial-DaULa3-qVox.jpg" },
+    { code: "DaTjHdBKvSh", views: 69259, cover: "trial-DaTjHdBKvSh.jpg" },
   ],
 };
 
@@ -244,6 +258,21 @@ document.getElementById("trialGrid").innerHTML = RECAP.trials.slice().sort((a, b
   // Callie's display rule: floor to the nearest half million (3M+ until 3.5M+, then 4M+, ...)
   el.innerHTML = `<span class="count" data-to="${Math.floor(total / 5e5) / 2}">0</span>M+`;
   document.getElementById("m2TotalLabel").textContent = "Month two views";
+})();
+
+/* ---- month one: trial grid (sorted by views) + total, same rules ---- */
+document.getElementById("m1TrialGrid").innerHTML = RECAP.monthOneTrials.slice().sort((a, b) => (b.views || 0) - (a.views || 0)).map(t => {
+  const href = `https://www.instagram.com/reel/${t.code}/`;
+  const media = `<a href="${href}" target="_blank" rel="noopener"><img src="assets/${t.cover}" alt=""></a>`;
+  return `
+    <div class="reveal">
+      <div class="slot aspect-[9/16] rounded-xl">${media}</div>
+      <div class="mt-2 text-sm text-mute">${fmtViews(t.views)}</div>
+    </div>`;
+}).join("");
+(function m1Total(){
+  const total = RECAP.monthOne.reduce((s, f) => s + (f.views || 0), 0) + RECAP.monthOneTrials.reduce((s, t) => s + (t.views || 0), 0);
+  document.getElementById("m1Total").innerHTML = `<span class="count" data-to="${Math.floor(total / 5e5) / 2}">0</span>M+`;
 })();
 
 /* ---- drive button ---- */

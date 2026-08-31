@@ -222,7 +222,7 @@ document.getElementById("m1Grid").innerHTML = RECAP.monthOne.map(tileHTML).join(
 /* ---- trial reel tiles: cover linked to the reel, views in small letters ---- */
 const fmtViews = v => v == null ? "views being confirmed"
   : (v >= 1e6 ? (Math.round(v / 1e5) / 10) + "M views" : Math.round(v / 1e3) + "K views");
-document.getElementById("trialGrid").innerHTML = RECAP.trials.map((t, i) => {
+document.getElementById("trialGrid").innerHTML = RECAP.trials.slice().sort((a, b) => (b.views || 0) - (a.views || 0)).map((t, i) => {
   const href = `https://www.instagram.com/reel/${t.code}/`;
   const media = t.cover
     ? `<a href="${href}" target="_blank" rel="noopener"><img src="assets/${t.cover}" alt=""></a>`

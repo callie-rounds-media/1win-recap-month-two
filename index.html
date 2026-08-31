@@ -241,7 +241,7 @@ document.getElementById("trialGrid").innerHTML = RECAP.trials.slice().sort((a, b
   if (!haveAll) { wrap.style.display = "none"; return; }
   const total = RECAP.monthTwoFeedViews + RECAP.trials.reduce((s, t) => s + t.views, 0);
   const el = document.getElementById("m2Total");
-  el.innerHTML = `<span class="count" data-to="${Math.round(total / 1e5) / 10}">0</span>M+`;
+  el.innerHTML = `<span class="count" data-to="${Math.floor(total / 1e6)}">0</span>M+`;
   document.getElementById("m2TotalLabel").textContent = "Month two views";
 })();
 

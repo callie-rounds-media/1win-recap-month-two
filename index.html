@@ -241,7 +241,8 @@ document.getElementById("trialGrid").innerHTML = RECAP.trials.slice().sort((a, b
   if (!haveAll) { wrap.style.display = "none"; return; }
   const total = RECAP.monthTwoFeedViews + RECAP.trials.reduce((s, t) => s + t.views, 0);
   const el = document.getElementById("m2Total");
-  el.innerHTML = `<span class="count" data-to="${Math.floor(total / 1e6)}">0</span>M+`;
+  // Callie's display rule: floor to the nearest half million (3M+ until 3.5M+, then 4M+, ...)
+  el.innerHTML = `<span class="count" data-to="${Math.floor(total / 5e5) / 2}">0</span>M+`;
   document.getElementById("m2TotalLabel").textContent = "Month two views";
 })();
 

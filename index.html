@@ -97,9 +97,18 @@ tailwind.config = {
 <section id="month-two-content" class="py-20 md:py-28 border-y border-white/5 bg-panel/40">
   <div class="max-w-6xl mx-auto px-6">
     <p class="eyebrow uppercase text-winblue text-xs font-bold mb-6 reveal">Month two · The content</p>
-    <p class="text-xl md:text-2xl text-white/85 max-w-3xl leading-relaxed reveal">This month's top performing videos, all still live and yours to multi-source on any platform.</p>
+    <p class="text-xl md:text-2xl text-white/85 max-w-3xl leading-relaxed reveal">This month's feed post, with all of the supplemental Trial reels beneath it. Everything is still live.</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14" id="m2Grid"></div>
+
+    <h3 class="font-head font-bold text-xl md:text-2xl tracking-tight mt-16 mb-8 reveal">The Trial reels.</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5" id="trialGrid"></div>
+
+    <div class="mt-14 reveal" id="m2TotalWrap">
+      <div class="font-head font-extrabold text-5xl sm:text-6xl md:text-7xl text-winblue tnum" id="m2Total"></div>
+      <div class="mt-3 font-head font-semibold text-white text-sm" id="m2TotalLabel"></div>
+      <div class="mt-1 text-sm text-mute max-w-[18rem]">Feed post and all Trial reels combined</div>
+    </div>
   </div>
 </section>
 
@@ -152,8 +161,28 @@ const RECAP = {
   driveUrl: "https://drive.google.com/drive/folders/1cP4upcnEMuhsQq4zbluOejsTsX2L6WPv?usp=share_link",
 
   monthTwo: [
-    { title: "In feed · 1.7M+ views", media: "feed-DaTXHC6KiKB.jpg", href: "https://www.instagram.com/reel/DaTXHC6KiKB/" },
-    // Supplemental Trial reels land here as Callie sends the links.
+    { title: "In feed · 1.7M views", media: "feed-DaTXHC6KiKB.jpg", href: "https://www.instagram.com/reel/DaTXHC6KiKB/" },
+  ],
+
+  // views in millions (e.g. 1.2) — null until Callie confirms from the app.
+  // cover: filename in assets/, or null while waiting on covers.
+  monthTwoFeedViewsM: 1.7,
+  trials: [
+    { code: "DbrvG5IKJcZ", views: null, cover: null },
+    { code: "DbzVgh0tUo5", views: null, cover: null },
+    { code: "DbzXNYnqzXe", views: null, cover: null },
+    { code: "DbzYW8xq42F", views: null, cover: null },
+    { code: "Dbz0XoThIBp", views: null, cover: null },
+    { code: "Db1Pg96hklF", views: null, cover: null },
+    { code: "Db9L90Yq8Ou", views: null, cover: null },
+    { code: "DcAbeT3h0nB", views: null, cover: null },
+    { code: "DcbKh29q_wq", views: null, cover: null },
+    { code: "DcbKoouqHW5", views: null, cover: null },
+    { code: "DcbK4l2K9eW", views: null, cover: null },
+    { code: "Dcd6bp6KEuh", views: null, cover: null },
+    { code: "DcimKIFq3vQ", views: null, cover: null },
+    { code: "DcioyCUKXQf", views: null, cover: null },
+    { code: "Dcj8Wnvq2B5", views: null, cover: null },
   ],
 
   monthOne: [
@@ -189,17 +218,34 @@ function tileHTML(item){
     </div>`;
 }
 
-const m2Grid = document.getElementById("m2Grid");
-if (RECAP.monthTwo.length) {
-  m2Grid.innerHTML = RECAP.monthTwo.map(tileHTML).join("");
-} else {
-  m2Grid.outerHTML = `
-    <div class="mt-14 rounded-2xl border border-dashed border-white/15 bg-panel/60 p-10 text-center reveal">
-      <p class="font-head font-semibold text-white/90 text-sm">The month two reels are on their way.</p>
-      <p class="mt-2 text-sm text-mute max-w-md mx-auto">They are being tagged in Trials right now and will appear here shortly.</p>
-    </div>`;
-}
+document.getElementById("m2Grid").innerHTML = RECAP.monthTwo.map(tileHTML).join("");
 document.getElementById("m1Grid").innerHTML = RECAP.monthOne.map(tileHTML).join("");
+
+/* ---- trial reel tiles: cover linked to the reel, views in small letters ---- */
+const fmtViews = v => v == null ? "views being confirmed"
+  : (v >= 1 ? (Math.round(v * 10) / 10) + "M views" : Math.round(v * 1000) + "K views");
+document.getElementById("trialGrid").innerHTML = RECAP.trials.map((t, i) => {
+  const href = `https://www.instagram.com/reel/${t.code}/`;
+  const media = t.cover
+    ? `<a href="${href}" target="_blank" rel="noopener"><img src="assets/${t.cover}" alt=""></a>`
+    : `<a href="${href}" target="_blank" rel="noopener" class="absolute inset-0 flex items-center justify-center text-mute font-head font-semibold text-xs">Trial ${String(i + 1).padStart(2, "0")}</a>`;
+  return `
+    <div class="reveal">
+      <div class="slot aspect-[9/16] rounded-xl">${media}</div>
+      <div class="mt-2 text-xs text-mute">${fmtViews(t.views)}</div>
+    </div>`;
+}).join("");
+
+/* ---- combined month two total: shows once every count is in ---- */
+(function m2Total(){
+  const wrap = document.getElementById("m2TotalWrap");
+  const haveAll = RECAP.monthTwoFeedViewsM != null && RECAP.trials.every(t => t.views != null);
+  if (!haveAll) { wrap.style.display = "none"; return; }
+  const total = RECAP.monthTwoFeedViewsM + RECAP.trials.reduce((s, t) => s + t.views, 0);
+  const el = document.getElementById("m2Total");
+  el.innerHTML = `<span class="count" data-to="${Math.round(total * 10) / 10}">0</span>M+`;
+  document.getElementById("m2TotalLabel").textContent = "Month two views combined";
+})();
 
 /* ---- drive button ---- */
 document.getElementById("dlBtn").href = RECAP.driveUrl;

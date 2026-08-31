@@ -164,25 +164,24 @@ const RECAP = {
     { title: "In feed · 1.7M views", media: "feed-DaTXHC6KiKB.jpg", href: "https://www.instagram.com/reel/DaTXHC6KiKB/" },
   ],
 
-  // views in millions (e.g. 1.2) — null until Callie confirms from the app.
-  // cover: filename in assets/, or null while waiting on covers.
-  monthTwoFeedViewsM: 1.7,
+  // views = exact play counts, live from Instagram 2026-08-30. Refresh before sending.
+  monthTwoFeedViews: 1705257,
   trials: [
-    { code: "DbrvG5IKJcZ", views: null, cover: null },
-    { code: "DbzVgh0tUo5", views: null, cover: null },
-    { code: "DbzXNYnqzXe", views: null, cover: null },
-    { code: "DbzYW8xq42F", views: null, cover: null },
-    { code: "Dbz0XoThIBp", views: null, cover: null },
-    { code: "Db1Pg96hklF", views: null, cover: null },
-    { code: "Db9L90Yq8Ou", views: null, cover: null },
-    { code: "DcAbeT3h0nB", views: null, cover: null },
-    { code: "DcbKh29q_wq", views: null, cover: null },
-    { code: "DcbKoouqHW5", views: null, cover: null },
-    { code: "DcbK4l2K9eW", views: null, cover: null },
-    { code: "Dcd6bp6KEuh", views: null, cover: null },
-    { code: "DcimKIFq3vQ", views: null, cover: null },
-    { code: "DcioyCUKXQf", views: null, cover: null },
-    { code: "Dcj8Wnvq2B5", views: null, cover: null },
+    { code: "DbrvG5IKJcZ", views: 11499, cover: "trial-DbrvG5IKJcZ.jpg" },
+    { code: "DbzVgh0tUo5", views: 424928, cover: "trial-DbzVgh0tUo5.jpg" },
+    { code: "DbzXNYnqzXe", views: 21146, cover: "trial-DbzXNYnqzXe.jpg" },
+    { code: "DbzYW8xq42F", views: 19293, cover: "trial-DbzYW8xq42F.jpg" },
+    { code: "Dbz0XoThIBp", views: 80923, cover: "trial-Dbz0XoThIBp.jpg" },
+    { code: "Db1Pg96hklF", views: 81248, cover: "trial-Db1Pg96hklF.jpg" },
+    { code: "Db9L90Yq8Ou", views: 35475, cover: "trial-Db9L90Yq8Ou.jpg" },
+    { code: "DcAbeT3h0nB", views: 10150, cover: "trial-DcAbeT3h0nB.jpg" },
+    { code: "DcbKh29q_wq", views: 39355, cover: "trial-DcbKh29q_wq.jpg" },
+    { code: "DcbKoouqHW5", views: 349211, cover: "trial-DcbKoouqHW5.jpg" },
+    { code: "DcbK4l2K9eW", views: 70957, cover: "trial-DcbK4l2K9eW.jpg" },
+    { code: "Dcd6bp6KEuh", views: 11894, cover: "trial-Dcd6bp6KEuh.jpg" },
+    { code: "DcimKIFq3vQ", views: 19371, cover: "trial-DcimKIFq3vQ.jpg" },
+    { code: "DcioyCUKXQf", views: 137176, cover: "trial-DcioyCUKXQf.jpg" },
+    { code: "Dcj8Wnvq2B5", views: 23629, cover: "trial-Dcj8Wnvq2B5.jpg" },
   ],
 
   monthOne: [
@@ -223,7 +222,7 @@ document.getElementById("m1Grid").innerHTML = RECAP.monthOne.map(tileHTML).join(
 
 /* ---- trial reel tiles: cover linked to the reel, views in small letters ---- */
 const fmtViews = v => v == null ? "views being confirmed"
-  : (v >= 1 ? (Math.round(v * 10) / 10) + "M views" : Math.round(v * 1000) + "K views");
+  : (v >= 1e6 ? (Math.round(v / 1e5) / 10) + "M views" : Math.round(v / 1e3) + "K views");
 document.getElementById("trialGrid").innerHTML = RECAP.trials.map((t, i) => {
   const href = `https://www.instagram.com/reel/${t.code}/`;
   const media = t.cover
@@ -239,11 +238,11 @@ document.getElementById("trialGrid").innerHTML = RECAP.trials.map((t, i) => {
 /* ---- combined month two total: shows once every count is in ---- */
 (function m2Total(){
   const wrap = document.getElementById("m2TotalWrap");
-  const haveAll = RECAP.monthTwoFeedViewsM != null && RECAP.trials.every(t => t.views != null);
+  const haveAll = RECAP.monthTwoFeedViews != null && RECAP.trials.every(t => t.views != null);
   if (!haveAll) { wrap.style.display = "none"; return; }
-  const total = RECAP.monthTwoFeedViewsM + RECAP.trials.reduce((s, t) => s + t.views, 0);
+  const total = RECAP.monthTwoFeedViews + RECAP.trials.reduce((s, t) => s + t.views, 0);
   const el = document.getElementById("m2Total");
-  el.innerHTML = `<span class="count" data-to="${Math.round(total * 10) / 10}">0</span>M+`;
+  el.innerHTML = `<span class="count" data-to="${Math.round(total / 1e5) / 10}">0</span>M+`;
   document.getElementById("m2TotalLabel").textContent = "Month two views combined";
 })();
 

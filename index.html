@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1win × Callie Rounds — Month Two Recap</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#0A0B0E',
+        panel: '#101218',
+        winblue: '#1479FF',
+        winblue2: '#4DA3FF',
+        mute: '#8A93A6',
+      },
+      fontFamily: {
+        head: ['Sora', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { background: #0A0B0E; overflow-x: hidden; }
+  section[id] { scroll-margin-top: 72px; }
+  ::selection { background: #1479FF; color: #fff; }
+
+  .eyebrow { letter-spacing: .28em; }
+  .tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+  /* Media tiles */
+  .slot { position: relative; overflow: hidden; background:
+      repeating-linear-gradient(45deg,#101218,#101218 12px,#0d0f14 12px,#0d0f14 24px);
+      border: 1px solid rgba(255,255,255,.08); }
+  .slot video, .slot img { width: 100%; height: 100%; object-fit: cover; display:block; }
+  /* show the full frame in fullscreen instead of the cropped/zoomed cover */
+  video:fullscreen, video:-webkit-full-screen { object-fit: contain !important; width: 100%; height: 100%; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Nav active */
+  .navlink { position: relative; }
+  .navlink.active { color: #fff; }
+  .navlink.active::after { width: 100%; }
+  .navlink::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background:#1479FF; transition:width .3s ease; }
+
+  @media print { .reveal{opacity:1!important;transform:none!important;} .no-print{display:none;} }
+</style>
+</head>
+<body class="font-body text-white antialiased">
+
+<!-- NAV -->
+<header class="no-print fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-ink/70 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
+    <a href="#hero" class="font-head font-extrabold tracking-tight text-sm">
+      <span class="text-winblue">1win</span> <span class="text-mute font-semibold">× Recap</span>
+    </a>
+    <nav class="hidden md:flex gap-8 text-sm text-mute font-medium">
+      <a href="#numbers" class="navlink hover:text-white transition">Month two</a>
+      <a href="#month-two-content" class="navlink hover:text-white transition">The content</a>
+      <a href="#month-one" class="navlink hover:text-white transition">Month one</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+  <div class="absolute left-0 -top-40 w-[900px] h-[600px] max-w-full pointer-events-none"
+       style="background:radial-gradient(50% 50% at 40% 50%,rgba(20,121,255,.14) 0%,rgba(20,121,255,0) 70%);"></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <div class="min-w-0">
+      <p class="eyebrow uppercase text-winblue2 text-xs font-semibold mb-5">1win × <a href="https://www.instagram.com/callie.rounds/" target="_blank" rel="noopener" class="underline underline-offset-2 decoration-winblue2/30 hover:decoration-winblue2 transition">@callie.rounds</a> · Month two</p>
+      <h1 class="font-head font-extrabold leading-[0.95] text-5xl sm:text-6xl md:text-7xl tracking-tight">
+        MONTH<br><span class="text-winblue">TWO.</span>
+      </h1>
+      <p class="mt-7 text-base md:text-lg text-mute max-w-xl min-w-0 leading-relaxed">
+        The partnership has kept building since those first ten days, and this month the reels have really taken off. The strongest videos have crossed thirty million views between them, so I put everything together in one place for you. Month two is up first, and the month one recap is further down if you want to look back at where it all started.
+      </p>
+    </div>
+    <div class="reveal">
+      <div class="relative rounded-3xl overflow-hidden border border-white/10 aspect-[4/5] shadow-[0_30px_80px_rgba(0,0,0,.55)]">
+        <img id="heroImg" src="assets/sneak-photo.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 46%;">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/35 to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+  </div>
+  <div class="no-print absolute bottom-8 left-1/2 -translate-x-1/2 text-mute text-xs eyebrow uppercase animate-pulse">Scroll ↓</div>
+</section>
+
+<!-- MONTH TWO — THE NUMBERS -->
+<section id="numbers" class="py-24 md:py-32 border-y border-white/5 bg-panel/40">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-winblue text-xs font-bold mb-3 reveal">Month two · The numbers</p>
+    <h2 class="font-head font-extrabold text-3xl md:text-4xl tracking-tight max-w-2xl reveal mb-12">What this month's videos have done.</h2>
+    <div class="flex flex-wrap gap-x-16 sm:gap-x-24 gap-y-10">
+      <div class="reveal min-w-0">
+        <div class="font-head font-extrabold text-5xl sm:text-6xl md:text-7xl text-winblue tnum"><span class="count" data-to="30">0</span>M+</div>
+        <div class="mt-3 font-head font-semibold text-white text-sm">Views so far</div>
+        <div class="mt-1 text-sm text-mute max-w-[15rem]">Across this month's top performing reels</div>
+      </div>
+    </div>
+    <p class="mt-10 text-sm text-mute max-w-2xl reveal">Each shoot was cut into several Trial reels, different edits with different audio, so these views are counted across all of them plus the feed posts. Everything is still live and still climbing.</p>
+  </div>
+</section>
+
+<!-- MONTH TWO — THE CONTENT -->
+<section id="month-two-content" class="py-20 md:py-28 border-y border-white/5 bg-panel/40">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-winblue text-xs font-bold mb-6 reveal">Month two · The content</p>
+    <p class="text-xl md:text-2xl text-white/85 max-w-3xl leading-relaxed reveal">This month's top performing videos, all still live and yours to multi-source on any platform.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14" id="m2Grid"></div>
+  </div>
+</section>
+
+<!-- MONTH ONE -->
+<section id="month-one" class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-winblue text-xs font-bold mb-3 reveal">Looking back · Month one</p>
+    <h2 class="font-head font-extrabold text-3xl md:text-4xl tracking-tight max-w-2xl reveal">The first ten days.</h2>
+    <p class="mt-6 text-base md:text-lg text-mute max-w-2xl reveal leading-relaxed">Our partnership started on July 4th with the first reel. Sunset heli jumps, hot air balloons drifting over the clouds, skydiving off a swing at 5,000 feet. Five shoots in the first ten days, and those videos have now climbed past thirty million views.</p>
+
+    <div class="flex flex-wrap gap-x-16 sm:gap-x-24 gap-y-10 mt-12">
+      <div class="reveal min-w-0">
+        <div class="font-head font-extrabold text-5xl sm:text-6xl md:text-7xl text-white tnum"><span class="count" data-to="30">0</span>M+</div>
+        <div class="mt-3 font-head font-semibold text-white text-sm">Views so far</div>
+        <div class="mt-1 text-sm text-mute max-w-[15rem]">1win branded content from month one</div>
+      </div>
+      <div class="reveal min-w-0">
+        <div class="font-head font-extrabold text-5xl sm:text-6xl md:text-7xl text-white tnum"><span class="count" data-to="5">0</span></div>
+        <div class="mt-3 font-head font-semibold text-white text-sm">Shoots</div>
+        <div class="mt-1 text-sm text-mute">In the first ten days</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14" id="m1Grid"></div>
+
+    <div class="mt-8 flex flex-wrap items-center justify-between gap-5 rounded-2xl border border-white/10 bg-panel p-7 reveal">
+      <div class="text-sm text-mute"><span class="text-white font-semibold">Download the month one edits.</span> Full-resolution files.</div>
+      <a id="dlBtn" href="#" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-head font-semibold text-sm text-white bg-winblue border border-winblue hover:-translate-y-0.5 transition">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        <span>Open the Drive folder</span>
+      </a>
+    </div>
+
+    <p class="mt-8 text-sm text-mute reveal">The original first ten days recap is still live <a href="https://callie-rounds-media.github.io/1win-recap/" target="_blank" rel="noopener" class="text-winblue2 underline underline-offset-2 decoration-winblue2/40 hover:decoration-winblue2 transition">right here</a> if you want the full version.</p>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<footer class="py-24 md:py-36 border-t border-white/5 text-center">
+  <div class="max-w-5xl mx-auto px-6">
+    <p class="font-head font-extrabold text-3xl sm:text-4xl md:text-5xl text-white reveal tracking-tight leading-tight">two months in and this partnership keeps getting better, i'm so excited for what we make next :)</p>
+    <p class="text-mute mt-8 text-sm eyebrow uppercase reveal">Month two recap · <span class="text-winblue">1win</span> × <a href="https://www.instagram.com/callie.rounds/" target="_blank" rel="noopener" class="text-winblue underline underline-offset-4 decoration-winblue/60 hover:decoration-winblue transition">@callie.rounds</a></p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   1WIN MONTH TWO RECAP — config. Drop media in assets/, update here.
+   monthTwo: add items as { title, media } (mp4 in assets/ with a
+   matching .jpg poster) or { title, href } for a live reel link.
+   ============================================================ */
+const RECAP = {
+  creator: "@callie.rounds",
+  driveUrl: "https://drive.google.com/drive/folders/1cP4upcnEMuhsQq4zbluOejsTsX2L6WPv?usp=share_link",
+
+  monthTwo: [
+    // Month two reels land here once Callie sends the links.
+  ],
+
+  monthOne: [
+    { title: "Edit 01", media: "shoot-01.mp4" },
+    { title: "Edit 02", media: "shoot-02.mp4" },
+    { title: "Edit 03", media: "shoot-04.mp4" },
+    { title: "Edit 04", media: "shoot-03.mp4" },
+  ],
+};
+
+/* ---- tile renderer (click to play, audio on, no overlay text) ---- */
+function tileHTML(item){
+  let media = "";
+  if (item.media) {
+    const isVid = /\.(mp4|mov|webm)$/i.test(item.media);
+    if (isVid) {
+      const poster = item.media.replace(/\.(mp4|mov|webm)$/i, ".jpg");
+      media = `<video src="assets/${item.media}" poster="assets/${poster}" controls playsinline preload="metadata"></video>`;
+    } else {
+      media = `<img src="assets/${item.media}" alt="">`;
+    }
+  }
+  const foot = item.title
+    ? `<div class="mt-3 font-head font-semibold text-sm text-white/90">${item.title}</div>`
+    : "";
+  return `
+    <div class="reveal">
+      <div class="slot aspect-[9/16] rounded-2xl">${media}</div>
+      ${foot}
+    </div>`;
+}
+
+const m2Grid = document.getElementById("m2Grid");
+if (RECAP.monthTwo.length) {
+  m2Grid.innerHTML = RECAP.monthTwo.map(tileHTML).join("");
+} else {
+  m2Grid.outerHTML = `
+    <div class="mt-14 rounded-2xl border border-dashed border-white/15 bg-panel/60 p-10 text-center reveal">
+      <p class="font-head font-semibold text-white/90 text-sm">The month two reels are on their way.</p>
+      <p class="mt-2 text-sm text-mute max-w-md mx-auto">They are being tagged in Trials right now and will appear here shortly.</p>
+    </div>`;
+}
+document.getElementById("m1Grid").innerHTML = RECAP.monthOne.map(tileHTML).join("");
+
+/* ---- drive button ---- */
+document.getElementById("dlBtn").href = RECAP.driveUrl;
+
+/* ---- scroll reveal ---- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+const revealAll = () => document.querySelectorAll('.reveal').forEach(el => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in'); else io.observe(el);
+});
+revealAll();
+window.addEventListener('load', revealAll);
+
+/* ---- gentle count-up ---- */
+const countIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, to = +el.dataset.to; let start = null;
+    const dec = to % 1 !== 0; const dur = 1200;
+    const step = (t) => {
+      if (!start) start = t;
+      const p = Math.min((t - start) / dur, 1);
+      el.textContent = dec ? (p * to).toFixed(1) : Math.floor(p * to).toString();
+      if (p < 1) requestAnimationFrame(step); else el.textContent = dec ? to.toFixed(1) : to;
+    };
+    requestAnimationFrame(step);
+    countIO.unobserve(el);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('.count').forEach(el => countIO.observe(el));
+</script>
+
+</body>
+</html>

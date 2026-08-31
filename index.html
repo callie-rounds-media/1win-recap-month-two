@@ -249,6 +249,38 @@ document.getElementById("trialGrid").innerHTML = RECAP.trials.map((t, i) => {
 /* ---- drive button ---- */
 document.getElementById("dlBtn").href = RECAP.driveUrl;
 
+/* ---- hero image adjuster (open index.html?adjust to use) ---- */
+(function(){
+  var img = document.getElementById('heroImg');
+  if(!img) return;
+  try {
+    var s = JSON.parse(localStorage.getItem('heroAdjM2')||'null');
+    if(s){ img.style.objectPosition = s.x+'% '+s.y+'%'; img.style.transform = 'scale('+(s.z/100)+')'; }
+  } catch(e){}
+  if(location.search.indexOf('adjust') < 0) return;
+
+  var panel = document.createElement('div');
+  panel.className = 'no-print';
+  panel.style.cssText = 'position:fixed;bottom:18px;right:18px;z-index:300;background:#14171c;border:1px solid #2a2f37;border-radius:14px;padding:16px 18px;width:250px;font-family:Inter,sans-serif;color:#e9ebef;box-shadow:0 16px 50px rgba(0,0,0,.6)';
+  function cur(k,d){ try{var s=JSON.parse(localStorage.getItem('heroAdjM2')||'null'); return s&&s[k]!=null?s[k]:d;}catch(e){return d;} }
+  panel.innerHTML =
+    '<div style="font-family:Sora;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#4DA3FF;margin-bottom:12px">Hero image framing</div>'+
+    '<label style="display:block;font-size:11px;color:#8B9096;margin-bottom:12px">Left / right<input id="adjX" type="range" min="0" max="100" value="'+cur('x',50)+'" style="width:100%;accent-color:#1479FF"></label>'+
+    '<label style="display:block;font-size:11px;color:#8B9096;margin-bottom:12px">Up / down<input id="adjY" type="range" min="0" max="100" value="'+cur('y',42)+'" style="width:100%;accent-color:#1479FF"></label>'+
+    '<label style="display:block;font-size:11px;color:#8B9096;margin-bottom:12px">Zoom<input id="adjZ" type="range" min="100" max="220" value="'+cur('z',100)+'" style="width:100%;accent-color:#1479FF"></label>'+
+    '<div id="adjOut" style="font:11px/1.5 monospace;color:#8B9096;margin-top:6px;word-break:break-all"></div>';
+  document.body.appendChild(panel);
+  var x=panel.querySelector('#adjX'), y=panel.querySelector('#adjY'), z=panel.querySelector('#adjZ'), out=panel.querySelector('#adjOut');
+  function apply(){
+    img.style.objectPosition = x.value+'% '+y.value+'%';
+    img.style.transform = 'scale('+(z.value/100)+')';
+    out.textContent = 'object-position: '+x.value+'% '+y.value+'%  scale: '+(z.value/100);
+    localStorage.setItem('heroAdjM2', JSON.stringify({x:x.value,y:y.value,z:z.value}));
+  }
+  [x,y,z].forEach(function(el){ el.addEventListener('input', apply); });
+  apply();
+})();
+
 /* ---- scroll reveal ---- */
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
